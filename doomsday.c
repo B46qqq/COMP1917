@@ -708,57 +708,47 @@ int dayOfWeek (int doomsday, int leapYear, int month, int day) {
  
    // INSERT YOUR CODE HERE
  // int DATE=month*100+day, DayDIFF=0, DayMORE=0;
-   if (month == 1)
-   {		//Since the doomsday in Jan is 3 or 4 for leapyear
+   if (month == 1){		
+   	//Since the doomsday in Jan is 3 or 4 for leapyear
 		dayOfWeek = MainDivider(doomsday, day,  3,  4, leapYear);	
-   }else if (month == 2)
-   {		//Since the doomsday in Fre is 28 or 29 for leapyear
+   }else if (month == 2){	
+   	//Since the doomsday in Fre is 28 or 29 for leapyear
 		dayOfWeek = MainDivider(doomsday, day, 28, 29, leapYear);
-   }else if (month ==3)
-   {		//The doomsdays after Fre will NOT vary depend on 
-   			// the leapyear.
+   }else if (month ==3){	
+   	//The doomsdays after Fre will NOT vary depend on 
+	// the leapyear.
 		dayOfWeek = MainDivider(doomsday, day,  0,  0, leapYear);
-   }else if (month == 4)
-   {
+   }else if (month == 4){
 		dayOfWeek = MainDivider(doomsday, day,  4,  4, leapYear);
-   }else if (month == 5)
-   {
+   }else if (month == 5){
 		dayOfWeek = MainDivider(doomsday, day,  9,  9, leapYear);
-   }else if (month == 6)
-   {
+   }else if (month == 6){
 		dayOfWeek = MainDivider(doomsday, day,  6,  6, leapYear);
-   }else if (month == 7)
-   {
+   }else if (month == 7){
 		dayOfWeek = MainDivider(doomsday, day, 11, 11, leapYear);
-   }else if (month == 8)
-   {
+   }else if (month == 8){
 		dayOfWeek = MainDivider(doomsday, day,  8,  8, leapYear);
-   }else if (month == 9)
-   {
+   }else if (month == 9){
 		dayOfWeek = MainDivider(doomsday, day,  5,  5, leapYear);
-   }else if (month == 10)
-   {
+   }else if (month == 10){
 		dayOfWeek = MainDivider(doomsday, day, 10, 10, leapYear);
-   }else if (month == 11)
-   {
+   }else if (month == 11){
 		dayOfWeek = MainDivider(doomsday, day,  7,  7, leapYear);
-   }else
-   {
+   }else{
 		dayOfWeek = MainDivider(doomsday, day, 12, 12, leapYear);
-	}
- 
+   }
+
    return dayOfWeek;
 }
 
 int MainDivider (int doomsday, int inputday, int CommYearDoomsday, int LeapYearDoomsday, int leapYear){
 	int dayOfWeek;
 
-	if (leapYear == TRUE)	//If the input is a leapyear.
-	{						//Then in the parameter, doomsday for
-							//leapyears will be passed in
+	if (leapYear == TRUE){	//If the input is a leapyear.			
+				//Then in the parameter, doomsday for
+				//leapyears will be passed in
 		dayOfWeek = ProcessDayofWeek(inputday, LeapYearDoomsday, doomsday);
-	}else
-	{						//Similar for non-leapyear inputs.
+	}else{						//Similar for non-leapyear inputs.
 		dayOfWeek = ProcessDayofWeek(inputday, CommYearDoomsday, doomsday);
 	}
 	return (dayOfWeek);
@@ -769,22 +759,16 @@ int ProcessDayofWeek(int inputday, int inputDoomsday, int doomsday){
 
 	//The calculation here is straight forward. 
 
-	if (inputday > inputDoomsday)
-	{
+	if (inputday > inputDoomsday){
 		dayOfWeek = (doomsday + (inputday - inputDoomsday))%DAYS_PER_WEEK;
-
-	}else if (inputday < inputDoomsday)
-	{
+	}else if (inputday < inputDoomsday){
 		dayOfWeek = (((inputday - inputDoomsday)% DAYS_PER_WEEK) +DAYS_PER_WEEK) +doomsday;
-		if (dayOfWeek >= DAYS_PER_WEEK)
-		{
+		if (dayOfWeek >= DAYS_PER_WEEK){
 			dayOfWeek = dayOfWeek - DAYS_PER_WEEK;
 		}
-	}else
-	{
+	}else{
 		dayOfWeek = doomsday;
 	}
-
 	return (dayOfWeek);
 }
 
