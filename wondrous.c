@@ -26,8 +26,8 @@ int main (int argc, char const *argv[]) {
 
 
 int printWondrous (unsigned int start) {
-
-	int counter = 1; // this counter is assigning the
+	
+    int counter = 1; // this counter is assigning the
                     // number of iteration
 
     if (start > 1){
